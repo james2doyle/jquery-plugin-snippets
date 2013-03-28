@@ -1,0 +1,50 @@
+<snippet>
+  <content><![CDATA[
+/*!
+ * jQuery 'best options' plugin boilerplate
+ * Author: @cowboy
+ * Further changes: @addyosmani
+ * Licensed under the MIT license
+ */
+
+;(function(\$, window, document, undefined) {\$.fn.${1:pluginName} = function(options) {
+    // Here's a best practice for overriding 'defaults'
+    // with specified options. Note how, rather than a
+    // regular defaults object being passed as the second
+    // parameter, we instead refer to \$.fn.${1:pluginName}.options
+    // explicitly, merging it with the options passed directly
+    // to the plugin. This allows us to override options both
+    // globally and on a per-call level.
+    options = \$.extend({}, \$.fn.${1:pluginName}.options, options);
+    return this.each(function() {
+      var elem = \$(this);
+    });
+  };
+
+  // Globally overriding options
+  // Here are our publicly accessible default plugin options
+  // that are available in case the user doesn't pass in all
+  // of the values expected. The user is given a default
+  // experience but can also override the values as necessary.
+  // eg. \$.fn.${1:pluginName}.key ='otherval';
+
+  \$.fn.${1:pluginName}.options = {
+    key: "value",
+    myMethod: function(elem, param) {
+      // method functionality
+    }
+  };
+})(jQuery, window, document);
+
+// References
+/*
+jQuery Pluginization and the accompanying gist (by Ben Alman) - http://goo.gl/1VwfP http://goo.gl/bg63
+Essential jQuery Plugin Patterns (by Addy Osmani) - http://goo.gl/oE0ge
+*/
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <!-- <tabTrigger>hello</tabTrigger> -->
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.js</scope>
+    <description>$.fn.pluginName.options - best options plugin boilerplate for jQuery</description>
+  </snippet>
